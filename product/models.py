@@ -1,4 +1,5 @@
 from django.db import models
+from category.models import Category
 
 
 class Product(models.Model):
@@ -9,7 +10,7 @@ class Product(models.Model):
     in_stock = models.BooleanField(default=False)
     price = models.IntegerField(default=0)
     discounted_price = models.IntegerField(default=0)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.sku
