@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'product',
+    'ordered_product',
     'category',
     'tag',
     'order'

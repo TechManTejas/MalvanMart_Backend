@@ -1,5 +1,5 @@
 from django.db import models
-from product.models import Product
+from ordered_product.models import OrderedProduct
 
 class Order(models.Model):
     PAYMENT_CHOICES = (
@@ -7,7 +7,7 @@ class Order(models.Model):
         ('Online', 'Online'),
     )
 
-    items = models.ManyToManyField(Product)
+    items = models.ManyToManyField(OrderedProduct)
     first_name = models.CharField(default='', max_length=255)
     last_name = models.CharField(default='', max_length=255)
     email = models.EmailField(default='', max_length=255)
@@ -17,7 +17,6 @@ class Order(models.Model):
     country = models.CharField(default='', max_length=255)
     postal = models.CharField(default='', max_length=255)
     payment = models.CharField(default='',choices=PAYMENT_CHOICES, max_length=255)
-
     amount = models.IntegerField(default=0)
 
     def __str__(self):
