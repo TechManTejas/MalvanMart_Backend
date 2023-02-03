@@ -13,5 +13,5 @@ class PostAdmin(admin.ModelAdmin):
         "in_stock",
         "price",
         "discounted_price",
-        "category"
+        "category",
     ]
