@@ -6,6 +6,7 @@ from rest_framework.routers import DefaultRouter
 from product import views as product_views
 from category import views as category_views
 from tag import views as tag_views
+from order import views as order_views
 
 router = DefaultRouter()
 router.register('product', product_views.ProductModelViewset,
@@ -14,6 +15,8 @@ router.register('category', category_views.CategoryModelViewset,
                 basename='category')
 router.register('tag', tag_views.TagModelViewset,
                 basename='tag')
+router.register('order', order_views.OrderModelViewset,
+                basename='order')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
