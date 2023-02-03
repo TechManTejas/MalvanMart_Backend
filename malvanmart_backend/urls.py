@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
 from product import views as product_views
+from ordered_product import views as ordered_product_views
 from category import views as category_views
 from tag import views as tag_views
 from order import views as order_views
@@ -11,6 +12,8 @@ from order import views as order_views
 router = DefaultRouter()
 router.register('product', product_views.ProductModelViewset,
                 basename='product')
+router.register('ordered_product', ordered_product_views.OrderedProductModelViewset,
+                basename='ordered_product')
 router.register('category', category_views.CategoryModelViewset, 
                 basename='category')
 router.register('tag', tag_views.TagModelViewset,
