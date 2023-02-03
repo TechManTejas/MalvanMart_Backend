@@ -6,6 +6,15 @@ from .models import Order
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
         "id",
+        "first_name",
+        "last_name",
+        "email",
+        "phone",
+        "street_address",
+        "city",
+        "country",
+        "postal",
+        "payment",
         "amount"
     ]
     readonly_fields = [
