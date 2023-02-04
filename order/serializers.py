@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from ordered_product.serializers import OrderedProductSerializer
 from .models import Order
+from drf_writable_nested import WritableNestedModelSerializer
 
-
-class OrderSerializer(serializers.ModelSerializer):
+class OrderSerializer(WritableNestedModelSerializer, serializers.ModelSerializer):
     items = OrderedProductSerializer(many=True)
     class Meta:
         model = Order
@@ -18,5 +18,6 @@ class OrderSerializer(serializers.ModelSerializer):
             "city",
             "country",
             "postal",
-            "payment"
+            "payment",
+            "amount"
         ]
