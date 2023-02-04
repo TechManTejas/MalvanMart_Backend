@@ -7,4 +7,4 @@ class OrderedProduct(models.Model):
     quantity = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.product.name
+        return self.product.sku
