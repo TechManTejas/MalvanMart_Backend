@@ -1,6 +1,7 @@
 from django.db import models
 from ordered_product.models import OrderedProduct
 
+
 class Order(models.Model):
     PAYMENT_CHOICES = (
         ('Cash On Delivery', 'Cash On Delivery'),

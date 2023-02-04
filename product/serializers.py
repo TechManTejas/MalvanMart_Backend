@@ -16,3 +16,11 @@ class ProductSerializer(serializers.ModelSerializer):
             "discounted_price",
             "category"
         ]
+
+class CartProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = [
+            "id",
+            "sku"
+        ]
