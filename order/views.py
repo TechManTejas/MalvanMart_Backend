@@ -7,4 +7,4 @@ from .serializers import OrderSerializer
 class OrderModelViewset(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    
+    http_method_names = ('post')

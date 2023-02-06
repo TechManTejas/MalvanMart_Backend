@@ -13,7 +13,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "id",
             "sku",
             "name",
-            # "picture",
+            "picture",
             "description",
             "in_stock",
             "price",
