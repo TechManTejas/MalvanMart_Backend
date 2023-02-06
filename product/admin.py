@@ -8,7 +8,7 @@ class PostAdmin(admin.ModelAdmin):
         "id", 
         "sku", 
         "name",
-        "picture",
+        # "picture",
         "description",
         "in_stock",
         "price",

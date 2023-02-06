@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from ordered_product.models import OrderedProduct
 from ordered_product.serializers import OrderedProductSerializer
+from product.models import Product
 from .models import Order
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -25,6 +26,12 @@ class OrderSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         items_data = validated_data.pop('items')
         order = Order.objects.create(**validated_data)
+        
         for item_data in items_data:
-            OrderedProduct.objects.create(order=order, **item_data)
+            product_data = item_data.pop('product')
+            product = Product.objects.get(sku=product_data['sku'])
+            item_data['product'] = product
+
+            order.items.add(OrderedProduct.objects.create(**item_data))
+
         return order

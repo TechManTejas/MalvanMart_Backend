@@ -12,7 +12,9 @@ from order import views as order_views
 router = DefaultRouter()
 router.register('product', product_views.ProductModelViewset,
                 basename='product')
-router.register('category', category_views.CategoryModelViewset, 
+router.register('ordered_product', ordered_product_views.OrderedProductModelViewset,
+                basename='ordered_product')
+router.register('category', category_views.CategoryModelViewset,
                 basename='category')
 router.register('tag', tag_views.TagModelViewset,
                 basename='tag')
