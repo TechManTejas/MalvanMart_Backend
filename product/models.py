@@ -15,4 +15,4 @@ class Product(models.Model):
     tag = models.ManyToManyField(Tag)
 
     def __str__(self):
-        return self.name
+        return self.sku

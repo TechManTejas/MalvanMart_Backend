@@ -25,13 +25,19 @@ class OrderSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         items_data = validated_data.pop('items')
-        order = Order.objects.create(**validated_data)
-        
+        amount = validated_data.pop('amount')
+        items = []
+
         for item_data in items_data:
             product_data = item_data.pop('product')
             product = Product.objects.get(sku=product_data['sku'])
             item_data['product'] = product
+            amount += item_data['quantity'] * product.discounted_price
+            items.append(OrderedProduct.objects.create(**item_data))
 
-            order.items.add(OrderedProduct.objects.create(**item_data))
+        validated_data['amount'] = amount
+        order = Order.objects.create(**validated_data)
+        for item in items:
+            order.items.add(item)
 
         return order

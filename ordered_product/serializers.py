@@ -9,7 +9,6 @@ class OrderedProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderedProduct
         fields = [
-            "id",
             "product",
             "quantity"
         ]
