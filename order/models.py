@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from ordered_product.models import OrderedProduct
 
 
@@ -8,6 +9,7 @@ class Order(models.Model):
         ('Online', 'Online'),
     )
 
+    timestamp = models.DateTimeField(default=timezone.now)
     items = models.ManyToManyField(OrderedProduct)
     first_name = models.CharField(default='', max_length=255)
     last_name = models.CharField(default='', max_length=255)

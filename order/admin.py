@@ -6,6 +6,7 @@ from .models import Order
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
         "id",
+        "timestamp",
         "first_name",
         "last_name",
         "email",

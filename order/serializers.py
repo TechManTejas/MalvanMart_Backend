@@ -10,6 +10,7 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = [
             "id",
+            "timestamp",
             "items",
             "first_name",
             "last_name",
